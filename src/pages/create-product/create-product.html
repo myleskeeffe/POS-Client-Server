@@ -1,0 +1,48 @@
+<!--
+  Generated template for the CreateProductPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+   <ion-title>
+    Runway Pos ≫ Create Product
+   </ion-title>
+   <ion-buttons start>
+    <button ion-button icon-only (click)="goHome()"><ion-icon name="arrow-back"></ion-icon></button>
+   </ion-buttons>
+   <ion-buttons end>
+    <button ion-button icon-only (click)="logout()"><ion-icon name="power"></ion-icon></button>
+  </ion-buttons>
+  </ion-navbar>
+ </ion-header>
+
+<ion-content padding>
+
+  <ion-row class="login-form">
+    <ion-col>
+        <ion-list inset>
+
+          <ion-item>
+            <ion-label><ion-icon name="person"></ion-icon></ion-label>
+            <ion-input [(ngModel)]="name" placeholder="Product Name" type="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label><ion-icon name="lock"></ion-icon></ion-label>
+            <ion-input [(ngModel)]="business" placeholder="Business" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label><ion-icon name="lock"></ion-icon></ion-label>
+            <ion-input [(ngModel)]="price" placeholder="Price" type="text"></ion-input>
+          </ion-item>
+
+        </ion-list>
+
+        <button ion-button full (click)="createProduct()" color="primary" class="login-button">Create</button>
+
+    </ion-col>
+  </ion-row>
+
+</ion-content>

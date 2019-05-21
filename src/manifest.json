@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "Runway POS Client",
+  "short_name": "Runway",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{

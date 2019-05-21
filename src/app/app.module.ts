@@ -14,7 +14,9 @@ import { LoginPageModule } from '../pages/login/login.module';
 import { HttpModule } from '@angular/http';
 import { HomePageModule } from '../pages/home/home.module';
 import { CreateProductPage} from '../pages/create-product/create-product';
-import { CreateProductPageModule } from '../pages/create-product/create-product.module'
+import { CreateProductPageModule } from '../pages/create-product/create-product.module';
+import { ProductListPage } from '../pages/productList/productlist';
+import { ProductListModule } from '../pages/productList/productlist.module';
 
 @NgModule({
   declarations: [
@@ -27,14 +29,16 @@ import { CreateProductPageModule } from '../pages/create-product/create-product.
     LoginPageModule,
     HttpModule,
     HomePageModule,
-    CreateProductPageModule
+    CreateProductPageModule,
+    ProductListModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     LoginPage,
-    CreateProductPage
+    CreateProductPage,
+    ProductListPage
   ],
   providers: [
     StatusBar,

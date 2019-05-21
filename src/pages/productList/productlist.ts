@@ -6,7 +6,7 @@ import { LoginPage } from '../login/login';
 
 @IonicPage({
   name: 'Product List',
-  segment: 'list/products'
+  segment: 'productlist'
 })
 
 

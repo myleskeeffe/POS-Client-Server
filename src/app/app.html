@@ -1,19 +1,31 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-nav [root]="rootPage" #content></ion-nav>
 
-<ion-menu type="overlay" [content]="content">
-
-        <ion-toolbar>
-          <ion-title>Pages</ion-title>
-        </ion-toolbar>
+<ion-menu [content]="content">
+        <ion-header>
+          <ion-toolbar color=primary>
+            <ion-title>Runway</ion-title>
+          </ion-toolbar>
+        </ion-header>
         <ion-content>
           <ion-list>
-            <button ion-item>
+            <button menuClose ion-item (click)="pushHome()">
               Home
             </button>
+            <button menuClose ion-item (click)="openPage(HomePage)">
+              Orders
+            </button>
+            <button menuClose ion-item (click)="pushProducts()">
+              Products
+            </button>
+            <button menuClose ion-item (click)="openPage(eventsPage)">
+              Users
+            </button>
+            <button menuClose ion-item (click)="openPage(eventsPage)">
+              Businesses
+            </button>
+            <button menuClose ion-item>
+              Close Menu
+            </button>
           </ion-list>
-          
         </ion-content>
-      
 </ion-menu>
-      
-<ion-nav id="nav" [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

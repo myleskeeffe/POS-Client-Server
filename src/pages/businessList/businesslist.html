@@ -1,11 +1,11 @@
 <ion-header>
   <ion-navbar color="primary">
    <ion-title>
-     Runway POS ≫ Product List
+     Runway POS ≫ Business List
    </ion-title>
    <ion-buttons start>
     <button ion-button icon-only (click)="goHome()"><ion-icon name="arrow-back"></ion-icon></button>
-    <button ion-button icon-only (click)="addProduct()"><ion-icon name="add"></ion-icon></button>
+    <button ion-button icon-only (click)="addBusiness()"><ion-icon name="add"></ion-icon></button>
    </ion-buttons>
    <ion-buttons end>
      <button ion-button icon-only (click)="logout()"><ion-icon name="power"></ion-icon></button>
@@ -21,16 +21,20 @@
         <table id="classes" class="printarea">
           <thead>
           <tr class="table100-head">
-            <th class="column1">Product</th>
-            <th class="column2">Price</th>
-            <th class="column3">Business</th>
+            <th class="column1">Business</th>
+            <th class="column2">Owners</th>
+            <th class="column3">50 Dollar Permission</th>
+            <th class="column4">Charity</th>
+            <th class="column5">Charity %</th>
           </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let product of products">
-              <td>{{product.name}}</td>
-              <td>{{product.price}}</td>
-              <td>{{product.business}}</td>
+            <tr *ngFor="let business of Businesses">
+              <td>{{business.name}}</td>
+              <td>{{business.businessOwners}}</td>
+              <td>{{'business.50dollarPermission'}}</td>
+              <td>{{business.charity}}</td>
+              <td>{{business.charityPercent}}</td>
             </tr>
           </tbody>
         </table>

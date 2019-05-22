@@ -1,53 +1,53 @@
 import { Component } from "@angular/core";
 import { NavController, ModalController, AlertController, LoadingController, IonicPage } from 'ionic-angular';
-import { Products } from '../../providers/products/products';
+import { Businesses } from '../../providers/businesses/businesses';
 import { Auth } from '../../providers/auth/auth';
 import { LoginPage } from '../login/login';
 
 @IonicPage({
-  name: 'Product List',
-  segment: 'productlist'
+  name: 'Business List',
+  segment: 'businesses/list'
 })
 
 
 @Component({
-  selector: 'product-list-page',
-  templateUrl: 'productlist.html'
+  selector: 'business-list-page',
+  templateUrl: 'businesslist.html'
 })
-export class ProductListPage {
+export class BusinessListPage {
 
-  products: any;
+  businesses: any;
   loading: any;
 
-  constructor(public navCtrl: NavController, public productService: Products, public modalCtrl: ModalController, 
+  constructor(public navCtrl: NavController, public businessService: Businesses, public modalCtrl: ModalController, 
     public alertCtrl: AlertController, public authService: Auth, public loadingCtrl: LoadingController) {
 
   }
 
   ionViewDidLoad(){
 
-    this.productService.getProducts().then((data) => {
-          this.products = data;
+    this.businessService.getBusinesses().then((data) => {
+          this.businesses = data;
     }, (err) => {
-        console.log("not allowed");
+        console.log("User not permitted to get businesses.");
     });
 
   }
 
-  deleteProduct(product){
+  deleteProduct(business){
 
     this.showLoader();
 
     //Remove from database
-    this.productService.deleteProduct(product._id).then((result) => {
+    this.businessService.deleteBusiness(business._id).then((result) => {
 
       this.loading.dismiss();
 
       //Remove locally
-        let index = this.products.indexOf(product);
+        let index = this.businesses.indexOf(business);
 
         if(index > -1){
-            this.products.splice(index, 1);
+            this.businesses.splice(index, 1);
         }   
 
     }, (err) => {
@@ -72,14 +72,7 @@ export class ProductListPage {
     this.navCtrl.setRoot(LoginPage);
 
   }
-  addProduct() {
-    this.navCtrl.push("CreateProductPage");
+  addBusiness() {
+    this.navCtrl.push("Add Business");
   }
-
-  goHome() {
-    this.navCtrl.setRoot("Home");
-  }
-
-
-
 }

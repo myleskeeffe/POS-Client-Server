@@ -37,9 +37,8 @@ export class MyApp {
     this.nav.push("Product List");
   }
   
-  ngAfterViewInit() {
-    // Let's navigate from TabsPage to Page1
-    console.log("Loaded.")
+  pushBusinesses() {
+    this.nav.push("Business List");
   }
 
 }

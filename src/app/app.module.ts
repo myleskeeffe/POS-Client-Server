@@ -9,6 +9,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { Auth } from '../providers/auth/auth';
 import { Products } from '../providers/products/products';
+import { Businesses } from '../providers/businesses/businesses';
+
 import { LoginPage } from '../pages/login/login';
 import { LoginPageModule } from '../pages/login/login.module';
 import { HttpModule } from '@angular/http';
@@ -17,6 +19,8 @@ import { CreateProductPage} from '../pages/create-product/create-product';
 import { CreateProductPageModule } from '../pages/create-product/create-product.module';
 import { ProductListPage } from '../pages/productList/productlist';
 import { ProductListModule } from '../pages/productList/productlist.module';
+import { BusinessListPage } from '../pages/businessList/businesslist';
+import {BusinessListModule } from '../pages/businessList/businesslist.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { ProductListModule } from '../pages/productList/productlist.module';
     HttpModule,
     HomePageModule,
     CreateProductPageModule,
-    ProductListModule
+    ProductListModule,
+    BusinessListModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -38,14 +43,16 @@ import { ProductListModule } from '../pages/productList/productlist.module';
     HomePage,
     LoginPage,
     CreateProductPage,
-    ProductListPage
+    ProductListPage,
+    BusinessListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Auth,
-    Products
+    Products,
+    Businesses
   ]
 })
 export class AppModule {}

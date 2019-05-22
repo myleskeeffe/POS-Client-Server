@@ -26,15 +26,17 @@
             <th class="column3">50 Dollar Permission</th>
             <th class="column4">Charity</th>
             <th class="column5">Charity %</th>
+            <th class="column6">ID</th>
           </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let business of Businesses">
+            <tr *ngFor="let business of businesses">
               <td>{{business.name}}</td>
               <td>{{business.businessOwners}}</td>
-              <td>{{'business.50dollarPermission'}}</td>
+              <td>{{business.fiftyDollarPermission}}</td>
               <td>{{business.charity}}</td>
               <td>{{business.charityPercent}}</td>
+              <td>{{business._id}}</td>
             </tr>
           </tbody>
         </table>

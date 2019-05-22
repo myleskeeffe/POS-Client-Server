@@ -20,7 +20,9 @@ import { CreateProductPageModule } from '../pages/create-product/create-product.
 import { ProductListPage } from '../pages/productList/productlist';
 import { ProductListModule } from '../pages/productList/productlist.module';
 import { BusinessListPage } from '../pages/businessList/businesslist';
-import {BusinessListModule } from '../pages/businessList/businesslist.module';
+import { BusinessListModule } from '../pages/businessList/businesslist.module';
+import { CreateBusinessPage } from '../pages/createBusiness/create-business';
+import { CreateBusinessPageModule } from '../pages/createBusiness/create-business.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import {BusinessListModule } from '../pages/businessList/businesslist.module';
     HomePageModule,
     CreateProductPageModule,
     ProductListModule,
-    BusinessListModule
+    BusinessListModule,
+    CreateBusinessPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,7 +47,8 @@ import {BusinessListModule } from '../pages/businessList/businesslist.module';
     LoginPage,
     CreateProductPage,
     ProductListPage,
-    BusinessListPage
+    BusinessListPage,
+    CreateBusinessPage
   ],
   providers: [
     StatusBar,

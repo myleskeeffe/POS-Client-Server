@@ -1,6 +1,6 @@
 env:
  global:
- - REPO=api
+ - REPO=www
 language: node_js
 node_js:
   - node

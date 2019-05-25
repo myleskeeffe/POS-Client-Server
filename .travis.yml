@@ -1,3 +1,6 @@
+env:
+ global:
+ - REPO=www
 language: node_js
 node_js:
   - node
@@ -11,3 +14,14 @@ notifications:
   email:
     on_success: never # default: change
     on_failure: always # default: always
+before_deploy:
+- cd ..
+- tar -zcf ${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz ${REPO}
+deploy:
+  provider: releases
+  api_key:
+    secure: "li+OXSWruYk1HoFfND8Bi87YdnLeJKqKak1gMVKCSppJ2Njrl2rMDlcAxBf/AfZzfr+I0VsRaJz2/Bwwn4OKeUMmjs2H68dSRdqRtYYcGzRWjFt34peKwrXRzF/BaHBuCTpvFpNMpziTJMZjMlWP3Ch3nnP8QYI9RUQB6rpRTrabxy6VHHZaB4pYrOYYHYRGUzdrvXsEM4bUZ0WvZh3aoZ/R/RSNQ7cdOhADOkeLXq7XJSc+gzb7eVoEMV17m86LfVRo9H41L1yyGNdgXanVmgI3hzzHsClB09ufMNP76YhhkiQI3482vpqxfRZHPZ1JXSA0QxHcxXFiCZY7gPJ8LycO+6HpUMITpQhGjDYryq5Ppq0dWeL7ms7hPFEX3QpYAYrZ+xooDEW6tNAo6KdKxd6t9bcb+emYNA/DtVh/6qN+zftOXB+6VPSBI6u4+fggLKdeuJh0Md+3VkL5XylWY2pCDesZAT4sdNRtdVjJ2JThJ0XoOunzZcgOM3Cagv0vPsEFpCdhb9aISmVzIFar2w4nQMeNCTRT4ZlDHvN6agSZKWALIjufNPIv2J8MzKB0gJ0kv0BzgL7XapZMVuJIW7zOSfqaqI9JWRm3Oso1MLQ0tQx88lTBTd9yTnLGpXAd7WpKUBcbUrTV3SYbX/y2IQXvK3cgjW/Mmb6cibIv6QI="
+  file: "${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz"
+  skip_cleanup: true
+  on:
+    tags: true

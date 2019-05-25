@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color="primary">
+   <ion-title>
+     Runway POS ≫ Business List
+   </ion-title>
+   <ion-buttons start>
+    <button ion-button icon-only (click)="goHome()"><ion-icon name="arrow-back"></ion-icon></button>
+    <button ion-button icon-only (click)="addBusiness()"><ion-icon name="add"></ion-icon></button>
+   </ion-buttons>
+   <ion-buttons end>
+     <button ion-button icon-only (click)="logout()"><ion-icon name="power"></ion-icon></button>
+   </ion-buttons>
+  </ion-navbar>
+ </ion-header>
+ 
+ <ion-content>
+
+   <div class="container-table100">
+    <div class="wrap-table100">
+      <div class="table100">
+        <table id="classes" class="printarea">
+          <thead>
+          <tr class="table100-head">
+            <th class="column1">Business</th>
+            <th class="column2">Owners</th>
+            <th class="column3">50 Dollar Permission</th>
+            <th class="column4">Charity</th>
+            <th class="column5">Charity %</th>
+            <th class="column6">ID</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let business of businesses">
+              <td>{{business.name}}</td>
+              <td>{{business.businessOwners}}</td>
+              <td>{{business.fiftyDollarPermission}}</td>
+              <td>{{business.charity}}</td>
+              <td>{{business.charityPercent}}</td>
+              <td>{{business._id}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+ 
+ </ion-content>

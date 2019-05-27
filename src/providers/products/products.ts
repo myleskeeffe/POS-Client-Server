@@ -17,7 +17,7 @@ export class Products {
       let headers = new Headers();
       headers.append('Authorization', this.authService.token);
 
-      this.http.get('//localhost:8080/api/products', {headers: headers})
+      this.http.get('http://localhost:8080/api/products', {headers: headers})
         .map(res => res.json())
         .subscribe(data => {
           resolve(data);
@@ -36,7 +36,7 @@ export class Products {
       headers.append('Content-Type', 'application/json');
       headers.append('Authorization', this.authService.token);
 
-      this.http.post('//localhost:8080/api/products', JSON.stringify(product), {headers: headers})
+      this.http.post('http://localhost:8080/api/products', JSON.stringify(product), {headers: headers})
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
@@ -55,7 +55,7 @@ export class Products {
         let headers = new Headers();
         headers.append('Authorization', this.authService.token);
 
-        this.http.delete('//localhost:8080/api/products/' + id, {headers: headers}).subscribe((res) => {
+        this.http.delete('http://localhost:8080/api/products/' + id, {headers: headers}).subscribe((res) => {
             resolve(res);
         }, (err) => {
             reject(err);

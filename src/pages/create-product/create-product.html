@@ -28,17 +28,19 @@
         <ion-list inset>
 
           <ion-item>
-            <ion-label><ion-icon name="person"></ion-icon></ion-label>
-            <ion-input [(ngModel)]="name" placeholder="Product Name" type="text"></ion-input>
+            <ion-label floating><ion-icon name="person"></ion-icon> Product Name</ion-label>
+            <ion-input [(ngModel)]="name" placeholder="" type="text"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-label><ion-icon name="lock"></ion-icon></ion-label>
-            <ion-input [(ngModel)]="business" placeholder="Business" type="text"></ion-input>
+            <ion-label floating><ion-icon name="lock"></ion-icon> Business</ion-label>
+            <ion-select [(ngModel)]="business">
+              <ion-option *ngFor="let business of businesses" value="{{business._id}}">{{business.name}}</ion-option>
+            </ion-select>
           </ion-item>
           <ion-item>
-            <ion-label><ion-icon name="lock"></ion-icon></ion-label>
-            <ion-input [(ngModel)]="price" placeholder="Price" type="text"></ion-input>
+            <ion-label floating><ion-icon name="lock"></ion-icon> Price</ion-label>
+            <ion-input [(ngModel)]="price" placeholder="" type="text"></ion-input>
           </ion-item>
 
         </ion-list>

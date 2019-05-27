@@ -4,6 +4,7 @@ import { Products } from '../../providers/products/products';
 import { HomePage } from '../home/home';
 import { LoginPage } from '../login/login';
 import { Auth } from '../../providers/auth/auth'
+import { Businesses } from '../../providers/businesses/businesses';
 
 /**
  * Generated class for the CreateProductPage page.
@@ -26,13 +27,20 @@ export class CreateProductPage {
   price: number;
   loading: any;
   showLoader: any;
+  businesses: {};
 
-  constructor(public navCtrl: NavController, public productService: Products, public loadingCtrl: LoadingController, public authService: Auth) {
+  constructor(public navCtrl: NavController, public productService: Products, public businessService: Businesses, public loadingCtrl: LoadingController, public authService: Auth) {
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateProductPage');
+  
+    this.businessService.getBusinesses().then((data) => {
+      this.businesses = data;
+    }, (err) => {
+      console.log("User not permitted to access business list");
+    });
   }
 
   createProduct(){

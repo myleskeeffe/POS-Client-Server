@@ -40,6 +40,10 @@ export class MyApp {
   pushBusinesses() {
     this.nav.push("Business List");
   }
+  
+  pushOrders() {
+    this.nav.push("Order List");
+  }
 
 }
 

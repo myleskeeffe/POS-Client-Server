@@ -10,6 +10,7 @@ import { HomePage } from '../pages/home/home';
 import { Auth } from '../providers/auth/auth';
 import { Products } from '../providers/products/products';
 import { Businesses } from '../providers/businesses/businesses';
+import { Orders } from '../providers/orders/orders';
 
 import { LoginPage } from '../pages/login/login';
 import { LoginPageModule } from '../pages/login/login.module';
@@ -23,6 +24,10 @@ import { BusinessListPage } from '../pages/businessList/businesslist';
 import { BusinessListModule } from '../pages/businessList/businesslist.module';
 import { CreateBusinessPage } from '../pages/createBusiness/create-business';
 import { CreateBusinessPageModule } from '../pages/createBusiness/create-business.module';
+import { OrderListPage } from '../pages/order-list/orderlist';
+import { OrderListModule } from '../pages/order-list/orderlist.module';
+import { CreateOrderPage } from '../pages/create-order/create-order';
+import { CreateOrderPageModule } from '../pages/create-order/create-order.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,9 @@ import { CreateBusinessPageModule } from '../pages/createBusiness/create-busines
     CreateProductPageModule,
     ProductListModule,
     BusinessListModule,
-    CreateBusinessPageModule
+    CreateBusinessPageModule,
+    OrderListModule,
+    CreateOrderPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -48,7 +55,9 @@ import { CreateBusinessPageModule } from '../pages/createBusiness/create-busines
     CreateProductPage,
     ProductListPage,
     BusinessListPage,
-    CreateBusinessPage
+    CreateBusinessPage,
+    OrderListPage,
+    CreateOrderPage
   ],
   providers: [
     StatusBar,
@@ -56,7 +65,8 @@ import { CreateBusinessPageModule } from '../pages/createBusiness/create-busines
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Auth,
     Products,
-    Businesses
+    Businesses,
+    Orders
   ]
 })
 export class AppModule {}

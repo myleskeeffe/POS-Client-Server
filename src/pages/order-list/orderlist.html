@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar color="primary">
+   <ion-title>
+     Runway POS ≫ Order List
+   </ion-title>
+   <ion-buttons start>
+    <button ion-button icon-only (click)="goHome()"><ion-icon name="arrow-back"></ion-icon></button>
+    <button ion-button icon-only (click)="addOrder()"><ion-icon name="add"></ion-icon></button>
+   </ion-buttons>
+   <ion-buttons end>
+     <button ion-button icon-only (click)="logout()"><ion-icon name="power"></ion-icon></button>
+   </ion-buttons>
+  </ion-navbar>
+ </ion-header>
+ 
+ <ion-content>
+
+   <div class="container-table100">
+    <div class="wrap-table100">
+      <div class="table100">
+        <table id="classes" class="printarea">
+          <thead>
+          <tr class="table100-head">
+            <th class="column1">Product</th>
+            <th class="column2">Quantity</th>
+            <th class="column3">Date</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let order of orders">
+              <td>{{order.product}}</td>
+              <td>{{order.quantity}}</td>
+              <td>{{order.saleDate}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+ 
+ </ion-content>

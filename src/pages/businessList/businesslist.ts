@@ -34,6 +34,8 @@ export class BusinessListPage {
 
   }
 
+
+
   deleteProduct(business){
 
     this.showLoader();
@@ -74,5 +76,9 @@ export class BusinessListPage {
   }
   addBusiness() {
     this.navCtrl.push("Add Business");
+  }
+
+  goHome() {
+    this.navCtrl.setRoot("Home");
   }
 }

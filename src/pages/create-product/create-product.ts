@@ -54,7 +54,7 @@ export class CreateProductPage {
 
     this.productService.createProduct(productDetails).then((result) => {
         console.log(result);
-        this.navCtrl.setRoot(HomePage);
+        this.navCtrl.pop;
     }, (err) => {
         console.log(err);
     });

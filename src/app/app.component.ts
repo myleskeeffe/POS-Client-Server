@@ -44,6 +44,9 @@ export class MyApp {
   pushOrders() {
     this.nav.push("Order List");
   }
+  pushCreateUser() {
+    this.nav.push("Signup");
+  }
 
 }
 

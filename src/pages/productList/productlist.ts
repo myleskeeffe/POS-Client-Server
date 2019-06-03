@@ -3,6 +3,7 @@ import { NavController, ModalController, AlertController, LoadingController, Ion
 import { Products } from '../../providers/products/products';
 import { Auth } from '../../providers/auth/auth';
 import { LoginPage } from '../login/login';
+import { Businesses } from '../../providers/businesses/businesses';
 
 @IonicPage({
   name: 'Product List',
@@ -18,9 +19,12 @@ export class ProductListPage {
 
   products: any;
   loading: any;
+  businessdata: any;
+  businessdat: any;
+  businessdeets: any;
 
   constructor(public navCtrl: NavController, public productService: Products, public modalCtrl: ModalController, 
-    public alertCtrl: AlertController, public authService: Auth, public loadingCtrl: LoadingController) {
+    public alertCtrl: AlertController, public authService: Auth, public loadingCtrl: LoadingController, public businessService: Businesses) {
 
   }
 
@@ -28,11 +32,28 @@ export class ProductListPage {
 
     this.productService.getProducts().then((data) => {
           this.products = data;
+          let x = 0;
+          for (let iProduct of this.products) {
+            this.businessService.findBusiness(iProduct.business).then((businessDeets) => {
+              console.log(businessDeets[0].name);
+              iProduct.businessd = businessDeets[0].name;
+            });
+         
+          }
     }, (err) => {
-        console.log("not allowed");
+        console.log("Could not fetch products. Try signing in again.");
     });
 
   }
+
+
+  findBusiness(businessid){
+    this.businessService.findBusiness(businessid).then((data3) => {
+      this.businessdeets = data3[0].name
+    })
+    return(this.businessdeets)
+  }
+
 
   deleteProduct(product){
 

@@ -28,6 +28,23 @@ export class Products {
 
   }
 
+  findProduct(id){
+    return new Promise((resolve, reject) => {
+
+      let headers = new Headers();
+      headers.append('Authorization', this.authService.token);
+
+      this.http.get('http://api.runway.pos.keeffes.com:8080/api/products/', {headers: headers})
+        .map(res => res.json())
+        .subscribe(data => {
+          resolve(data);
+        }, (err) => {
+          reject(err);
+        });
+    });
+
+  }
+
   createProduct(product){
 
     return new Promise((resolve, reject) => {

@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { NavController, ModalController, AlertController, LoadingController, IonicPage } from 'ionic-angular';
 import { Orders } from '../../providers/orders/orders';
+import { Products } from '../../providers/products/products';
 import { Auth } from '../../providers/auth/auth';
 import { LoginPage } from '../login/login';
 
@@ -20,15 +21,22 @@ export class OrderListPage {
   loading: any;
 
   constructor(public navCtrl: NavController, public orderService: Orders, public modalCtrl: ModalController, 
-    public alertCtrl: AlertController, public authService: Auth, public loadingCtrl: LoadingController) {
+    public alertCtrl: AlertController, public authService: Auth, public loadingCtrl: LoadingController, public productService: Products) {
 
   }
 
   ionViewDidLoad(){
 
     this.orderService.getOrders().then((data) => {
-          this.orders = data;
-          console.log(this.orders);
+      this.orders = data;
+      let x = 0;
+      for (let iOrder of this.orders) {
+        this.productService.findProduct(iOrder.product).then((productDeets) => {
+          console.log(productDeets[0].name);
+          iOrder.productd = productDeets[0].name;
+        });
+     
+      }
     }, (err) => {
         console.log("not allowed");
     });

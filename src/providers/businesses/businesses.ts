@@ -28,6 +28,22 @@ export class Businesses {
 
   }
 
+  findBusiness(id){
+    return new Promise((resolve, reject) => {
+
+      let headers = new Headers();
+      headers.append('Authorization', this.authService.token);
+
+      this.http.get('http://api.runway.pos.keeffes.com:8080/api/businesses/', {headers: headers})
+        .map(res => res.json())
+        .subscribe(data => {
+          resolve(data);
+        }, (err) => {
+          reject(err);
+        });
+    });
+
+  }
   createBusiness(business){
 
     return new Promise((resolve, reject) => {
@@ -47,6 +63,8 @@ export class Businesses {
     });
 
   }
+
+
 
   deleteBusiness(id){
 

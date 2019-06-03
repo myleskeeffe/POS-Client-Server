@@ -52,5 +52,8 @@ export class SignupPage {
     this.loading.present();
 
   }
+  goHome() {
+    this.navCtrl.setRoot("Home");
+  }
 
 }
